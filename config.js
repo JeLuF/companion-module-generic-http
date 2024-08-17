@@ -47,4 +47,24 @@ export const configFields = [
 			{ id: false, label: 'Accept - Use at your own risk!' },
 		],
 	},
+	{
+		type: 'static-text',
+		id: 'rejectUnauthorizedInfo',
+		width: 12,
+		value: `
+					<hr />
+					<h5>Advanced Options</h5>
+					These settings usually don't need to be changed. Some embedded web servers are not standard
+					compliant and have problems handling these headers correctly. In these cases, you might want
+					to disable them.
+		`
+	},
+	{
+		type: 'checkbox',
+		id: 'disable_decompress',
+		label: 'Disable decompression',
+		tooltip: 'Suppresses the "accept-encoding" header',
+		width: 6,
+		default: false,
+	},
 ]

@@ -79,12 +79,21 @@ class GenericHttpInstance extends InstanceBase {
 			headers['Content-Type'] = action.options.contenttype
 		}
 
+
+		if (this.config.suppress_connection) {
+			headers['connection'] = undefined
+		}
+
 		const options = {
 			https: {
 				rejectUnauthorized: this.config.rejectUnauthorized,
 			},
 
 			headers,
+		}
+
+		if (this.config.disable_decompress) {
+			options['decompress'] = false
 		}
 
 		if (includeBody) {
